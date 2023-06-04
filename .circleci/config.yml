@@ -31,9 +31,18 @@ jobs:
       - checkout
       
       - run:
+        name: install dependencies
+        command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            make install
+      
+      - run:
           name: Run lint
           # This assumes pytest is installed via the install-package step above
-          command: make lint
+          command: |
+            . venv/bin/activate
+            make lint
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
