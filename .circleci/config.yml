@@ -30,6 +30,7 @@ jobs:
     steps:
       - checkout
       
+      - run:
           name: Run lint
           # This assumes pytest is installed via the install-package step above
           command: make lint
